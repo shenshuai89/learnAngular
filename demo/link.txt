@@ -1,0 +1,1 @@
+http://www.yiibai.com/angularjs/angularjs_quick_guide.html
