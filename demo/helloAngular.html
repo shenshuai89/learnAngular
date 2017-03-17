@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Hello Angular!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+
+<body>
+	<div ng-controller="helloController">
+		<h2>这是第一个{{hello.title}}的示例</h2>
+	</div>
+    <div ng-controller="studentController" ng-init="quantity=1;cost=30; student={firstname:'李',lastname:'刚',rollno:101};marks=[82,91,78,77,64]">
+        <p>Hello {{student.firstname + " " + student.lastname}}!</p>
+        <p>Expense on Books : {{cost * quantity}} Rs</p>
+        <p>Roll No: {{student.rollno}}</p>
+        <p>Marks(Math): {{marks[3]}}</p>
+    </div>
+    <script type="text/javascript">
+    angular.module("myApp", [])
+    	.controller("helloController",function($scope){
+    		$scope.hello = [];
+    		$scope.hello.title = "AngularJs";
+    	})
+        .controller("studentController", function($scope) {
+            $scope.student = {
+                firstName: "李",
+                lastName: "四",
+                fullName: function() {
+                    var studentObject;
+                    studentObject = $scope.student;
+                    return studentObject.firstName + " " + studentObject.lastName;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

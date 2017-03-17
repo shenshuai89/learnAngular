@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular数据绑定示例!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller="studentController">
+        first name:
+        <input type="text" ng-model="student.firstName" />
+        <br> last name:
+        <input type="text" ng-model="student.lastName" />
+        <br>
+        <br> 您输入的名字是:{{student.fullName() | uppercase }}
+    </div>
+    <script type="text/javascript">
+    angular.module("myApp", [])
+        .controller('studentController', function($scope) {
+            $scope.student = {
+                firstName : "li",
+                lastName : "si",
+                fullName: function() {
+                    var studentObject;
+                    studentObject = $scope.student;
+                    return studentObject.firstName + ' ' + studentObject.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
