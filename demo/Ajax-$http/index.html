@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular的Ajax!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<style>
+    table,th,td{
+        border:1px solid #ccc;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+       background-color: #f2f2f2;
+    }
+    table tr:nth-child(even) {
+       background-color: #ffffff;
+    }
+</style>
+<body ng-app="myApp">
+    <h2>AngularJs的$http应用</h2>
+    <div ng-controller="studentController">
+        <table>
+   <tr>
+      <th>名字</th>
+      <th>性别</th>
+      <th>年龄</th>
+   </tr>
+   <tr ng-repeat="student in students">
+      <td>{{ student.name }}</td>
+      <td>{{ student.sex }}</td>
+      <td>{{ student.age }}</td>
+   </tr>
+</table>
+    </div>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp",[]);
+
+        myApp.controller("studentController",function($scope,$http){
+            var url = "data.json";
+            $http({
+                method:'GET',
+                url:url
+            }).then(function successCallback(response){
+                $scope.students = response.data.students;
+            },function errorCallback(response){
+                console.log("errorCallback");
+            })
+        })
+    </script>
+</body>
+
+</html>

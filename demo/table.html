@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular表格!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<style>
+    table,th,td{
+        border:1px solid #ccc;
+        border-collapse: collapse;
+        padding: 5px;
+    }
+    table tr:nth-child(odd) {
+       background-color: #f2f2f2;
+    }
+    table tr:nth-child(even) {
+       background-color: #ffffff;
+    }
+</style>
+<body ng-app="myApp">
+    <h2>AngularJs表格应用</h2>
+    <div ng-controller="studentController">
+        <table border="0">
+            <tr><td>姓：</td><td><input type="text" ng-model="student.firstName"></td></tr>
+            <tr><td>名：</td><td><input type="text" ng-model="student.lastName"></td></tr>
+            <tr><td>名字：</td><td>{{ student.fullName() }}</td></tr>
+            <tr><td>科目：</td><td>
+                <table>
+                    <tr><td>科目：</td><td>分数：</td></tr>
+                    <tr ng-repeat="subject in student.subjects">
+                        <td>{{ subject.name }}</td>
+                        <td>{{ subject.marks}}</td>
+                    </tr>
+                </table>
+            </td></tr>
+        </table>
+
+    </div>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp",[]);
+        myApp.controller("studentController",function($scope){
+            $scope.student = {
+                firstName:"学",
+                lastName: "霸",
+                subjects:[
+                    {name:"数学",marks:75},
+                    {name:"语文",marks:85},
+                    {name:"英语",marks:95},
+                    {name:"物理",marks:100}
+                ],
+                fullName:function(){
+                    return $scope.student.firstName + " "+$scope.student.lastName;
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

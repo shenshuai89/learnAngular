@@ -1,0 +1,19 @@
+{
+    "students": [{
+        "name": "jim",
+        "sex": "male",
+        "age": 12
+    }, {
+        "name": "sam",
+        "sex": "female",
+        "age": 22
+    }, {
+        "name": "green",
+        "sex": "male",
+        "age": 23
+    }, {
+        "name": "elln",
+        "sex": "female",
+        "age": 16
+    }]
+}

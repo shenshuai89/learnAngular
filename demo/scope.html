@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular的scope作用域!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+
+<body>
+    <div ng-controller="shapeController">
+        <p>{{ message }}
+            <br/>{{ type }}</p>
+        <div ng-controller="circleController">
+        <p>{{message}}
+            <br/> {{type}} </p>
+	    </div>
+	    <div ng-controller="squareController">
+	        <p>{{message}}
+	            <br/> {{type}} </p>
+	    </div>
+    </div>
+
+    <script type="text/javascript">
+    var myApp = angular.module("myApp", [])
+    myApp.controller('shapeController', function($scope) {
+        $scope.message = "In shape controller";
+        $scope.type = "Shape";
+    })
+    myApp.controller('circleController', function($scope) {
+        $scope.message = "In circle controller";//不设置type时候，可以继承上一级的type
+    })
+    myApp.controller('squareController', function($scope) {
+        $scope.message = "In square controller";
+        $scope.type = "square";
+    })
+    </script>
+</body>
+
+</html>

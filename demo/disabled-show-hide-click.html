@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" >
+
+<head>
+    <meta charset="UTF-8">
+    <title>Angular绑定属性!</title>
+    <script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+
+<body ng-app="myApp">
+    <h2>AngularJs表格应用</h2>
+    <div ng-controller="testController">
+        <div>
+            <input type="checkbox" ng-model="enableDisableButton" id="disableBtn"> 
+            <label for="disableBtn">Disable Button</label>
+            <button ng-disabled="enableDisableButton" >点击我！</button>
+        </div>
+        <div>
+            <input type="checkbox" ng-model="show1" id="showBtn">
+            <label for="showBtn">显示按钮</label>
+            <button ng-show="show1">点击我</button>
+        </div>
+        <div>
+            <input type="checkbox" ng-model="hide1" id="hideBtn">
+            <label for="hideBtn">隐藏按钮</label>
+            <button ng-hide="hide1">被隐藏</button>
+        </div>
+        <div>
+            <p>clickNumber: {{ clickCounter }}</p>
+            <button ng-click="clickCounter = clickCounter +1">点击我</button>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var myApp = angular.module("myApp",[]);
+        myApp.controller("testController",function($scope){
+            $scope.clickCounter = 0 
+        })
+    </script>
+</body>
+
+</html>

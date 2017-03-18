@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJs view</title>
+  	<!-- <script src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.1.5/angular.min.js"></script> -->
+  	<!-- <script src="./angular.js"></script> -->
+  	<!-- <script src="./angular-route.js"></script> -->
+  	<script src="//cdn.bootcss.com/angular.js/1.6.3/angular.js"></script>
+  	<script src="//cdn.bootcss.com/angular.js/1.6.3/angular-route.js"></script>
+</head>
+<body ng-app="myApp">
+	<h2>AngularJS 视图应用示例</h2>
+	<p><a href="#addStudent">添加学生</a></p>
+    <p><a href="#viewStudents">查看学生</a></p>
+    <div ng-view></div>
+	<script type="text/ng-template" id="addStudent.html">
+		<h2>添加学生</h2>
+		{{message}}
+	</script>
+	<script type="text/ng-template" id="viewStudents.html">
+		<h2>查看学生</h2>
+		{{ message }}
+	</script>
+	<script>
+	var myApp = angular.module("myApp",['ngRoute']);
+	
+	// 上面引用的Angular和Angular-router版本大于1.6.0的时候要加入下面的配置信息
+	myApp.config(["$locationProvider",function($locationProvider){
+		$locationProvider.hashPrefix("");
+	}]);
+	// 配置信息结束
+
+	myApp.config(['$routeProvider',
+		function($routeProvider){
+			$routeProvider
+			.when('/addStudent',{
+				templateUrl:'addStudent.html',
+				controller:'AddStudentController'
+			})
+			.when('/viewStudents',{
+				templateUrl:'viewStudents.html',
+				controller:'ViewStudentsController'
+			})
+			.otherwise({
+				redirectTo:'/addStudent'
+			})
+		}])
+	myApp.controller("AddStudentController",function($scope){
+		$scope.message = "这个页面是用于显示学生信息的输入表单";
+	});
+	myApp.controller("ViewStudentsController",function($scope){
+		$scope.message = "这个页面是用于显示所有学生信息";
+	})
+	</script>
+</body>
+</html>
