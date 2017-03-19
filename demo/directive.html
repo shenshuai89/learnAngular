@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>AngularJs 自定指令</title>
+	<script src="http://cdn.bootcss.com/angular.js/1.6.3/angular.min.js"></script>
+</head>
+<body ng-app="MyApp">
+	<h2>自定义指令示例</h2>
+	<div ng-controller="studentController">
+
+	<student name="Mali"></student>
+	<student name="YuHo"></student>
+	</div>
+
+	<script>
+	var myApp = angular.module("MyApp",[]);
+	myApp.directive('student',function(){
+		var directive = {};
+		directive.restrict = 'E';
+		// directive.template = 'student:<b>{{student.name}}</b>,Roll >> NO.:<b>{{student.rollno}}</b>';
+		directive.scope = {
+			student : '=name'
+		}
+		directive.compile = function(element,attributes){
+			element.css("border","1px solid #ccc");
+			var linkFunction = function($scope,element,attributes){
+				element.html("student:<b>"+$scope.student.name +"</b>, Roll >> No.: <b>"+$scope.student.rollno+
+					"</b>")
+				element.css("border", "1px solid #ccc");
+			}
+			return linkFunction;
+		}
+		return directive;
+	});
+
+	myApp.controller("studentController",function($scope){
+		$scope.Mali = {};
+		$scope.Mali.name = "玛丽";
+		$scope.Mali.rollno = 001;
+
+		$scope.YuHo = {};
+		$scope.YuHo.name = "雨虹";
+		$scope.YuHo.rollno = 007;
+	})
+	</script>
+</body>
+</html>
