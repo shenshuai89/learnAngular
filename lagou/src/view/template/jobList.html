@@ -1,0 +1,18 @@
+<ul class="job-list bg-w">
+    <!--<li class="item">
+        <img class="logo fl" src="../../image/company-1.png" alt="">
+        <h3 class="title">销售</h3>
+        <p class="text">
+            慕课网【北京】互联网
+            2017/3/26
+        </p>
+
+    </li>-->
+    <li ui-sref="job({id:item.id})" class="item" ng-repeat="item in data">
+        <img class="logo fl" ng-src="{{item.imgSrc}}">
+        <h3 class="title" ng-bind="item.name"></h3>
+        <p class="text" ng-bind="item.companyName+'['+item.city+']'+'['+item.industry+']'">
+        </p>
+        <p class="text" ng-bind="item.time"></p>
+    </li>
+</ul>

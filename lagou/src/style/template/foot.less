@@ -1,0 +1,43 @@
+.foot {
+  .h(36);
+  .lh(36);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0px;
+  padding: 0px;
+  font-size: 0;
+  border-top: 1px solid @tabTextColor;
+  li {
+    width: 33%;
+    .fs(16);
+    color: @tabTextColor;
+    .icon{
+      .mt(-3);
+      .mr(4);
+    }
+    &.select{
+      background-color: @highlightBgColor;
+      color: @hightlightColor;
+    }
+    .icon-document {
+      background: url("../../image/document.png") center center no-repeat;
+      background-size: 100%;
+      width:20px;
+      height:16px;
+    }
+    .icon-search {
+      background: url("../../image/search.png") center center no-repeat;
+      background-size: 100%;
+      width:18px;
+      height:18px;
+    }
+    .icon-user{
+      background: url("../../image/user.png") center center no-repeat;
+      background-size: 100%;
+      width:16px;
+      height:19px;
+    }
+  }
+}
