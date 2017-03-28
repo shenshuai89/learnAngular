@@ -5,7 +5,9 @@ angular.module('app').directive("appJobInfo",[function () {
         replace:true,
         templateUrl:'../../view/template/jobInfo.html',
         scope:{
-            isActive:"="
+            isActive:"=",
+            isLogin:"=",
+            pos:"="
         },
         link:function ($scope) {
             $scope.imgPath = $scope.isActive ? "../../image/star-active.png":"../../image/star.png";

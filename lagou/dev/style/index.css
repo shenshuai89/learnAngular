@@ -127,6 +127,7 @@
 }
 .job-list .item {
   padding: 8px 0;
+  padding-left: 10px;
   list-style: none;
   border-bottom: 1px solid #cfcbc1;
   height: 1.73333333rem;
@@ -138,30 +139,10 @@
 }
 .job-list .item .title {
   margin: 0;
+  font-size: 0.42666667rem;
 }
 .job-list .item .text {
   margin: 0;
-}
-.bottom-btn {
-  position: fixed;
-  height: 1.2rem;
-  font-size: 0.42666667rem;
-  background: #12d5b5;
-  left: 0;
-  right: 0;
-  width: 100%;
-  bottom: 0;
-}
-.jobInfo {
-  border-bottom: 1px solid #cfcbc1;
-  padding: 16px 10px 12px 10px;
-}
-.jobInfo .ml20 {
-  margin-left: 20px;
-}
-.jobInfo img {
-  top: 40px;
-  right: 24px;
 }
 .company-info {
   padding: 20px 15px 13px 15px;
@@ -191,6 +172,67 @@
   margin-left: 0px;
   padding-left: 10px;
 }
+.bottom-btn {
+  position: fixed;
+  height: 1.2rem;
+  font-size: 0.42666667rem;
+  background: #12d5b5;
+  left: 0;
+  right: 0;
+  width: 100%;
+  bottom: 0;
+}
+.jobInfo {
+  border-bottom: 1px solid #cfcbc1;
+  padding: 16px 10px 12px 10px;
+}
+.jobInfo .ml20 {
+  margin-left: 20px;
+}
+.jobInfo img {
+  top: 40px;
+  right: 24px;
+}
+.job-class {
+  background-color: #fff;
+  padding: 20px 0px 15px 0px;
+}
+.job-class .job-class-head {
+  margin-left: 15px;
+  margin-bottom: 6px;
+}
+.job-class .job-class-head h5 {
+  margin: 0;
+  font-size: 0.42666667rem;
+  line-height: 0.8rem;
+  font-weight: 600;
+  color: #333;
+}
+.job-class .job-class-head button {
+  padding: 6px 15px;
+  border-radius: 15px;
+  background-color: #a5ecf9;
+  color: #333;
+}
+.job-class .job-class-head button.active {
+  background-color: #12d5b5;
+  color: #a5ecf9;
+}
+.job-class ul {
+  border-top: 2px solid #cfcbc1;
+}
+.job-class ul li {
+  padding-left: 15px;
+  padding-top: 10px;
+}
+.job-class ul li p {
+  margin: 0;
+  padding: 0;
+  line-height: 0.74666667rem;
+}
+.job-class ul li .salary {
+  color: #ff630b;
+}
 html,
 body {
   height: 100%;
@@ -204,4 +246,10 @@ body {
 button {
   border-width: 0;
   outline-width: 0;
+}
+ul,
+li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }

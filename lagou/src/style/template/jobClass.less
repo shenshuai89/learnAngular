@@ -1,0 +1,41 @@
+.job-class {
+  background-color: @defaultColor;
+  padding: 20px 0px 15px 0px;
+  .job-class-head {
+    margin-left: 15px;
+    margin-bottom: 6px;
+    h5 {
+      margin: 0;
+      .fs(16);
+      .lh(30);
+      font-weight: 600;
+      color: @blkColor;
+    }
+    button {
+      padding: 6px 15px;
+      border-radius: 15px;
+      background-color: @btnColor;
+      color: @blkColor;
+      &.active {
+        background-color: @headBgColor;
+        color: @btnColor;
+      }
+    }
+  }
+  ul {
+    border-top: 2px solid @listLineColor;
+    li {
+      padding-left:15px;
+      padding-top:10px;
+      p {
+        margin: 0;
+        padding: 0;
+        .lh(28);
+      }
+      .salary{
+        color: @dangerColor;
+      }
+    }
+  }
+
+}

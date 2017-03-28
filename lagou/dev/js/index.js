@@ -18,6 +18,10 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
         url: '/job/:id',
         templateUrl:'view/job.html',
         controller:'jobCtrl'
+    }).state('companyDetail',{
+        url: '/companyDetail/:id',
+        templateUrl:'view/companyDetail.html',
+        controller:'companyDetailCtrl'
     }).state('search',{
         url: '/search',
         templateUrl:'view/search.html',
@@ -26,15 +30,64 @@ angular.module('app').config(['$stateProvider', '$urlRouterProvider', function (
     $urlRouterProvider.otherwise('main');
 }])
 /**
+ * Created by Administrator on 2017/3/27.
+ */
+"use strict"
+angular.module("app")
+    .controller("companyDetailCtrl", ["$scope", '$state', '$http', function ($scope, $state, $http) {
+        //$scope.title1 = "职位详情111";
+        $scope.title2 = "公司详情";
+        $http({
+            method: "GET",
+            url: "../../data/company.json?id=" + $state.params.id
+        }).then(function (resp) {
+            $scope.company = resp.data;
+            $scope.positionClass = resp.data.positionClass;
+            //console.log(resp.data.positionClass);
+        }, function (error) {
+
+        });
+    }])
+/**
  * Created by shenshuai on 2017/3/24.
  */
 'use strict'
 
 angular.module('app')
-.controller('jobCtrl',['$scope',function ($scope) {
-    $scope.title1 = "职位详情111",
-    $scope.title2 = "职位详情222"
-}]);
+    .controller('jobCtrl', ['$scope', '$http', '$state', '$q', function ($scope, $http, $state, $q) {
+        $scope.isLogin = false;
+        $scope.title1 = "职位详情111";
+        $scope.title2 = "职位详情222";
+        function getPosition() {
+            var def = $q.defer();//$q可以让函数异步加载
+            $http({
+                method: "GET",
+                url: "../../data/position.json?id=" + $state.params.id
+            }).then(function (resp) {
+                $scope.position = resp.data;
+                def.resolve(resp);
+            }, function (error) {
+                def.reject(error);
+            });
+            return def.promise;////$q的promise可以让函数执行then方法
+        };
+        function getCompany(id) {
+            $http({
+                method: "GET",
+                url: "../../data/company.json?id=" + id
+            }).then(function (resp) {
+                //console.log("getCompany");
+                //console.log(resp.data);
+                $scope.company = resp.data;
+            });
+        };
+        getPosition().then(function (obj) {
+            //console.log("companyId");
+            //console.log(obj.data.companyId);
+            getCompany(obj.data.companyId);
+        });
+
+    }]);
 
 /**
  * Created by shenshuai on 2017/3/24.
@@ -42,8 +95,18 @@ angular.module('app')
 'use strict'
 
 angular.module('app')
-    .controller('mainCtrl', ['$scope', function ($scope) {
-        $scope.list12 = [{
+    .controller('mainCtrl', ['$scope', '$http', function ($scope, $http) {
+
+        $http({
+            method: 'GET',
+            url: '../../data/positionList.json'
+        }).then(function (res){
+            // console.log(success);
+            $scope.list12 = res.data;
+        },function (error){
+
+        });
+        /*$scope.list12 = [{
             id: "1",
             name: "销售",
             imgSrc: "../../image/company-1.png",
@@ -60,7 +123,7 @@ angular.module('app')
                 city: "深圳",
                 industry: "互联网",
                 time: "2017-3-36 11:00"
-            }];
+            }];*/
     }]);
 
 "use strict";
@@ -72,9 +135,12 @@ angular.module("app")
 'use strict';
 angular.module('app').directive("appCompany", [function () {
     return {
-        restrict:'A',
-        replace:true,
-        templateUrl:'../../view/template/company.html'
+        restrict: 'A',
+        replace: true,
+        scope: {
+            comp: "="
+        },
+        templateUrl: '../../view/template/company.html'
     }
 }])
 /**
@@ -113,6 +179,29 @@ angular.module('app')
         }
     }
 }])
+/**
+ * Created by Administrator on 2017/3/27.
+ */
+"use strict"
+angular.module("app")
+    .directive("appJobClass", [function () {
+        return {
+            restrict: "A",
+            replace: true,
+            scope: {
+                comp: "="
+            },
+            templateUrl: "../../view/template/jobClass.html"
+            /*link: function ($scope) {
+                $scope.showPositionList = function (idx) {
+                    $scope.positionList = $scope.comp.positionClass[idx].positionList;
+                    console.log($scope.positionList);
+                    $scope.isActive = idx;
+                }
+                $scope.showPositionList(0);
+            }*/
+        }
+    }])
 'use strict';
 angular.module('app').directive("appJobInfo",[function () {
     return {
@@ -120,7 +209,9 @@ angular.module('app').directive("appJobInfo",[function () {
         replace:true,
         templateUrl:'../../view/template/jobInfo.html',
         scope:{
-            isActive:"="
+            isActive:"=",
+            isLogin:"=",
+            pos:"="
         },
         link:function ($scope) {
             $scope.imgPath = $scope.isActive ? "../../image/star-active.png":"../../image/star.png";
