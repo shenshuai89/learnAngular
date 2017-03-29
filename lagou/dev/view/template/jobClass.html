@@ -1,14 +1,16 @@
 <div class="job-class">
     <div class="job-class-head">
         <h5>职位分类</h5>
-        <button ng-click="showPositionList($index)" class="{{isActive?'active':''}}"
+        <button ng-click="showPositionList($index)" class="{{ $index===isActive ? 'active':''}}"
                 ng-repeat="cls in comp.positionClass" ng-bind="cls.name"></button>
     </div>
     <ul>
-        <li ng-repeat="pos in comp.positionClass">
+        <li ng-repeat="pos in positionList">
             <p ng-bind="pos.name"></p>
-            <p ng-bind="pos.createdDate"><span>更新时间：</span> 2017-04-01</p>
-            <p ng-bind="pos.salary"><span>薪资：</span><span class="salary"> 15K-30K</span></p>
+            <p ng-bind="pos.createdDate"></p>
+            <p ng-bind="pos.salary"></p>
+            <!--<p ng-bind="pos.createdDate"><span>更新时间：</span> 2017-04-01</p>
+            <p ng-bind="pos.salary"><span>薪资：</span><span class="salary"> 15K-30K</span></p>-->
         </li>
     </ul>
 </div>

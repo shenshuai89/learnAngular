@@ -4,10 +4,12 @@
 'use strict'
 
 angular.module('app')
-    .controller('jobCtrl', ['$scope', '$http', '$state', '$q', function ($scope, $http, $state, $q) {
+    .controller('jobCtrl', ['$scope', '$http', '$state', '$q','cache',  function ($scope, $http, $state, $q,cache) {
+        cache.remove('to');
         $scope.isLogin = false;
         $scope.title1 = "职位详情111";
         $scope.title2 = "职位详情222";
+
         function getPosition() {
             var def = $q.defer();//$q可以让函数异步加载
             $http({

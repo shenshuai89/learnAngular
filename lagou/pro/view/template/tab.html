@@ -1,0 +1,6 @@
+<ul class="tab">
+    <li ng-repeat="item in list" class="{{ selectId === item.id ? 'active':''}}"
+        ng-bind="item.name" ng-click="tabClick(item)">城市
+    </li>
+
+</ul>

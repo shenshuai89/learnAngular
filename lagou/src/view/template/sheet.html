@@ -1,0 +1,9 @@
+<div class="sheet" ng-show="visiable" ng-click="visiable=false">
+    <div class="wrapper">
+        <ul>
+            <li ng-click="select(item)" ng-repeat="item in list" ng-bind="item.name"></li>
+        </ul>
+        <button class="ta-c" ng-click="visiable=false">取消</button>
+    </div>
+
+</div>

@@ -126,11 +126,11 @@
   margin-top: 0.13333333rem;
 }
 .job-list .item {
+  min-height: 80px;
   padding: 8px 0;
   padding-left: 10px;
   list-style: none;
   border-bottom: 1px solid #cfcbc1;
-  height: 1.73333333rem;
 }
 .job-list .item .logo {
   width: 1.73333333rem;
@@ -143,6 +143,7 @@
 }
 .job-list .item .text {
   margin: 0;
+  font-size: 0.37333333rem;
 }
 .company-info {
   padding: 20px 15px 13px 15px;
@@ -213,6 +214,7 @@
   border-radius: 15px;
   background-color: #a5ecf9;
   color: #333;
+  margin-right: 10px;
 }
 .job-class .job-class-head button.active {
   background-color: #12d5b5;
@@ -233,15 +235,114 @@
 .job-class ul li .salary {
   color: #ff630b;
 }
+.tab {
+  background-color: #ebebeb;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  margin: 0;
+  margin-top: 1.06666667rem;
+  padding: 0;
+  font-size: 0;
+}
+.tab li {
+  display: inline-block;
+  font-size: 0.37333333rem;
+  width: 33.333%;
+  text-align: center;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  border-bottom: 2px solid #d7d7d7;
+}
+.tab li.active {
+  border-bottom: 2px solid #12d5b5;
+}
+.sheet {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 99;
+}
+.sheet .wrapper {
+  position: fixed;
+  left: 8px;
+  right: 8px;
+  bottom: 8px;
+  z-index: 100;
+}
+.sheet .wrapper li,
+.sheet .wrapper button {
+  width: 100%;
+  height: 1.33333333rem;
+  line-height: 1.33333333rem;
+  font-size: 0.42666667rem;
+  background-color: #ebebeb;
+}
+.sheet .wrapper ul {
+  border-radius: 5px;
+  overflow: hidden;
+  max-height: 400px;
+}
+.sheet .wrapper li {
+  color: #01c2a3;
+  padding-left: 15px;
+  border-bottom: 1px solid #cfcbc1;
+}
+.sheet .wrapper button {
+  margin-top: 8px;
+  border-radius: 5px;
+}
+.search-bar {
+  background-color: #12d5b5;
+  padding: 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1.06666667rem;
+  line-height: 1.06666667rem;
+  margin: 0;
+  padding: 0;
+}
+.search-bar img {
+  width: 15px;
+  height: 15px;
+}
+.search-bar input {
+  border: none;
+  border-radius: 6px;
+  height: 0.53333333rem;
+  width: 5.6rem;
+  margin: 0 5px;
+  padding-left: 0.53333333rem;
+}
+.search-bar button {
+  font-size: 0.42666667rem;
+  background-color: #12d5b5;
+}
+.search-bar button:first-child {
+  color: #fff;
+}
+.search-bar button:last-child {
+  color: #333;
+}
+.search-list {
+  margin-top: 80px;
+}
 html,
 body {
   height: 100%;
   width: 100%;
   margin: 0px;
+  overflow: auto;
 }
 body {
   font-size: 0.42666667rem;
-  background-color: #eee;
+  background-color: #f1f1f1;
 }
 button {
   border-width: 0;

@@ -1,0 +1,37 @@
+.search-bar {
+  background-color: @headBgColor;
+  padding: 5px;
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  .h(40);
+  .lh(40);
+  margin:0;
+  padding:0;
+  img {
+    width: 15px;
+    height: 15px;
+  }
+  input {
+    border: none;
+    border-radius: 6px;
+    .h(20);
+    .w(210);
+    margin: 0 5px;
+    .pl(20)
+  }
+  button {
+    .fs(16);
+    background-color: @headBgColor;
+    &:first-child {
+      color: @defaultColor;
+    }
+    &:last-child {
+      color: @blkColor;
+    }
+  }
+}
+.search-list{
+  margin-top:80px;
+}
