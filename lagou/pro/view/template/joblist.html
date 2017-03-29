@@ -9,11 +9,10 @@
 
     </li>-->
     <li ui-sref="job({id:item.id})" class="item" ng-repeat="item in data">
-        <img class="logo fl" ng-src="{{item.imageUrl}}">
-        <h3 class="title" ng-bind="item.companyName"></h3>
-        <p class="text" ng-bind="item.companyName+'['+item.cityName+']'+'['+item.industryName+']'">
+        <img class="logo fl" ng-src="{{item.imgSrc}}">
+        <h3 class="title" ng-bind="item.name"></h3>
+        <p class="text" ng-bind="item.companyName+'['+item.city+']'+'['+item.industry+']'">
         </p>
-        <p class="text" ng-bind="item.date"></p>
-        <div class="clear"></div>
+        <p class="text" ng-bind="item.time"></p>
     </li>
 </ul>

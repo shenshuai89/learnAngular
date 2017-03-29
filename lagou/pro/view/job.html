@@ -2,11 +2,14 @@
 <!--  通过用=设置变量，来设置不同的属性值
 <div app-head-bar title="title2"></div>
 -->
-<div app-job-info pos="position" is-login="isLogin"></div>
-<div app-company comp="company"></div>
+<div app-job-info></div>
+<div app-company></div>
 <div class="bg-w job-desc">
     <h5>职位描述</h5>
-    <pre class="ta-l" ng-bind="position.description">
+    <pre class="ta-l">
+        岗位职责
+        1:销售产品。
+        2:推广产品
     </pre>
 </div>
-<button class="bottom-btn c-w" ng-bind="isLogin?'投个简历':'去登录'"></button>
+<button class="bottom-btn c-w">投个简历</button>
