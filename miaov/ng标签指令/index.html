@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body>
+
+<div ng-app="myapp" ng-controller="firstController">
+
+    <a href="">ng内定义的标签，阻止了默认刷新页面</a>
+    <select ng-options="color.name for color in colors" ng-model="myColor">
+
+    </select>
+    <p>{{myColor.name}}</p>
+    <form name="myForm">
+        <input type="email" name="myInput" ng-model="text" ng-model-options="{updateOn:'blur'}">
+        <div>$valid:{{myForm.myInput.$valid}}</div>
+        <div>$invalid:{{myForm.myInput.$invalid}}</div>
+        <div>$pristine:{{myForm.myInput.$pristine}}</div>
+        <div>$dirty:{{myForm.myInput.$dirty}}</div>
+        <div>$error:{{myForm.myInput.$error}}</div>
+    </form>
+</div>
+<div>
+    <a href="">ng外定义的标签，会自动刷新页面</a>
+</div>
+
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

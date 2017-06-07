@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计算购物的价格，并且判断运费的多少</title>
+    <script src="../vendor/angular.min.js"></script>
+    <script>
+        var myApp = angular.module("myapp",[])
+
+        myApp.controller('firstController',['$scope','$timeout',function ($scope,$timeout) {
+            $scope.iphone ={
+                price:500,
+                num:3,
+                fre:20
+            }
+
+            $scope.sum =function () {
+                return $scope.iphone.price * $scope.iphone.num
+            }
+
+            $scope.$watch('iphone', function (newVal, oldVal) {
+                $scope.iphone.fre = $scope.sum() > 1000 ? 0:10
+            },true)
+        }])
+
+    </script>
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="firstController">
+    <p>价格: <input type="text" ng-model="iphone.price" ></p>
+    <p>数量: <input type="text" ng-model="iphone.num" ></p>
+    <p>费用: <span>{{ sum() | currency:'￥' }}</span></p>
+    <p>运费: <span>{{ iphone.fre | currency:'￥' }}</span></p>
+    <p>总金额: <span>{{ sum() + iphone.fre | currency:'￥' }}</span></p>
+</div>
+
+</body>
+</html>

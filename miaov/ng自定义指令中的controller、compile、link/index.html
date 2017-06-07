@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="firstController">
+
+    <order></order>
+    <parent>
+        {{info}}
+        <child>{{message}}</child>
+        {{message}}
+    </parent>
+    <parent>
+        {{info}}
+    </parent>
+    <parent>
+        <child>{{message}}</child>
+    </parent>
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

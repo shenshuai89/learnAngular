@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>动态绑定多个模块</title>
+    <script src="../vendor/angular.min.js"></script>
+    <script>
+        var myApp1 = angular.module("myapp1",[])
+        var myApp2 = angular.module("myapp2",[])
+
+        myApp1.controller('firstController', ['$scope',function ($scope) {
+            $scope.name = 'zs'
+        }])
+        myApp2.controller('secondController', ['$scope',function ($scope) {
+            $scope.name = 'ls'
+        }])
+
+        document.onclick = function () {
+            var oDiv = document.getElementsByTagName('div');
+
+            angular.bootstrap(oDiv[0],['myapp1'])
+            angular.bootstrap(oDiv[1],['myapp2'])
+        }
+
+    </script>
+</head>
+<body>
+
+<div ng-controller="firstController">
+    <span>{{name}}</span>
+</div>
+<div ng-controller="secondController">
+    <span>{{name}}</span>
+</div>
+</body>
+</html>

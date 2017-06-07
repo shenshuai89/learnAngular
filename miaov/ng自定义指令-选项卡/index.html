@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #div1 div,#div2 div{
+            width: 300px;
+            height: 200px;
+            border:1px solid darkred;
+            display: none;
+        }
+        #div1 .active,#div2 .active{
+            background: red;
+            color:white;
+        }
+
+    </style>
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController">
+    <my-tab my-id="div1" my-data="data1"></my-tab>
+
+    <my-tab my-id="div2" my-data="data2"></my-tab>
+
+
+
+    <!--<div id="div1">
+        <input type="button" value="1" class="active">
+        <input type="button" value="2">
+        <input type="button" value="3">
+        <div style="display:block">11111111</div>
+        <div>22222222</div>
+        <div>33333333</div>
+    </div>-->
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

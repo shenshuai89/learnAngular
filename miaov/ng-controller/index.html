@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController as obj">
+
+    <span ng-bind="obj.text"></span>
+    <span ng-bind="obj.text +'**'+ obj.show()"></span>
+
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

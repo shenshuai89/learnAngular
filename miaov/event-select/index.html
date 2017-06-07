@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController">
+
+    <input type="checkbox" ng-model="aaa" >
+    <select>
+        <option value="">111</option>
+        <option value="">222</option>
+        <option value="" ng-selected="aaa">333</option>
+    </select>
+
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

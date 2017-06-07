@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="firstController">
+
+    <!--初始化应用时创建一个变量,为变量初始化一些值-->
+    <div ng-repeat="arrOuter in arr" ng-init="outerIndex = $index">
+        <div ng-repeat="arrInner in arrOuter" ng-init="innerIndex = $index">
+            <p> {{arrInner}}  :  {{ outerIndex }}{{ innerIndex }}</p>
+        </div>
+    </div>
+
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        #drag1{
+            width:100px;
+            height:100px;
+            background: red;
+            position: absolute;
+        }
+    </style>
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController">
+
+    <div id="drag1" my-drag="true"></div>
+
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

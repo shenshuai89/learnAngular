@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="firstController">
+    <div>greeting from factory: {{getMyFactory}}</div>
+    <div>greeting from service: {{getMyService}}</div>
+    <div>greeting from provide: {{getMyProvide}}</div>
+    <div>defaultName: {{defaultName}}, config to: {{name}}</div>
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

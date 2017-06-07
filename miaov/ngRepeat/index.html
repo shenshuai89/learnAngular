@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .active1{
+            background: #ff0000;
+        }
+        .active2{
+            background: #ffff00;
+        }
+    </style>
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController">
+    <ul>
+        <li class="{{ $even ? 'active1' : 'active2' }}" ng-repeat="data in datalist" >{{data}}</li>
+    </ul>
+    <div ng-repeat-start="data in datalist">{{data}}</div>
+    <span>{{data}}</span>
+    <p ng-repeat-end="data in datalist">{{data}}</p>
+</div>
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

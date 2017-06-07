@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="../vendor/bootstrap.min.css">
+</head>
+<body ng-app="myapp">
+
+<div ng-controller="firstController" class="container">
+
+    <form name="myForm" novalidate class="form-group form-horizontal" style="margin-top:20px;">
+
+        <div class="row">
+            <label class="col-sm-2">用户名：</label>
+            <div class="col-sm-10">
+                <input type="text" name="myText" ng-model="regText.username" ng-required="true" class="form-control"
+                       ng-pattern="/^[a-zA-Z]+$/" ng-blur="change('regText',myForm.myText.$error)">
+                <div ng-repeat="re in regText.regList | filter: regText.regVal" class="alert alert-danger" ng-bind="re.info"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="col-sm-2">密 码:</label>
+            <div class="col-sm-10">
+                <input type="password" name="myPassword" ng-model="regPassword.password" ng-required="true" class="form-control"
+                       ng-minlength="5" ng-maxlength="12" ng-blur="change('regPassword',myForm.myPassword.$error)">
+                <div ng-repeat="re in regPassword.regList | filter: regPassword.regVal" class="alert alert-danger" ng-bind="re.info"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <label class="col-sm-2">确认密码:</label>
+            <div class="col-sm-10">
+                <input type="password" name="passwordConfirm" ng-model="passwordConfirm.password" ng-required="true" class="form-control"
+                       ng-minlength="5" ng-maxlength="12" ng-blur="passwordConfirm.confirm()">
+                <div ng-repeat="re in passwordConfirm.regList | filter: passwordConfirm.regVal" class="alert alert-danger" ng-bind="re.info"></div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>

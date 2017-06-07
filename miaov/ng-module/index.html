@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+</head>
+<body ng-app="myapp">
+<div ng-controller="firstController">
+    <!-- 当添加了ng-model-options属性时，可以不是实时更新数据，当输入完成后才进行数据更新 -->
+    <input type="text" ng-model="text" ng-model-options="{updateOn:'blur'}">
+    <div ng-bind="text">
+    </div>
+
+</div>
+
+<script src="../vendor/angular.min.js"></script>
+<script src="./app/index.js"></script>
+</body>
+</html>
